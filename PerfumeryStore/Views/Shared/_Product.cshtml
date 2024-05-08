@@ -1,0 +1,9 @@
+﻿@model  Product
+
+<div class="ProductBox">
+    <img class="Image" src="@Model.Image" />
+    <span>Perfume:</span>
+    <a href="Product/ProductInfo/@Model.Id">@Model.Brand.Name @Model.Name</a>
+    <p>Price: @Model.Price </p>
+    <span>@Model.Description</span>
+</div>

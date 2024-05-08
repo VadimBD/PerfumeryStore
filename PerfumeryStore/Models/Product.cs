@@ -2,7 +2,7 @@
 {
     public class Product
     {
-        public int ProductID { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public float Price { get; set; }
         public string Description { get; set; } = string.Empty;
@@ -12,6 +12,9 @@
         public ProductСontainer? Container { get; set; }
         public ProductType ProductType { get; set; }
         public Gender Gender { get; set; }
+        public bool TopSales {  get; set; }
+        public bool Novelty {  get; set; }
+        public string Image { get; set; } = string.Empty;
     }
     public enum ProductType
     {

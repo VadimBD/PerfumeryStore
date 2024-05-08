@@ -1,12 +1,18 @@
 ﻿<html>
    <head>
     <link href="~/css/Style.css" rel="stylesheet" />
+    <link rel="stylesheet" asp-href-include="lib/dist/bootstrap/css/*.min.css" />
    </head>
 
    <body>
-       <header class="Head">
-        <div class="heart">&#9829;</div>
-       </header>
+    <nav class="navbar navbar-dark" style="background-color:rgba(200, 152, 176, 1); padding: 5px 5px 5px 5px;">
+        <a href="~/Product/Brands">Brands</a>
+        <form style="display:inline-flex" >
+            <input class=""  placeholder="Search"> 
+            <a class="HeaderSearchBtn">Search</a>
+        </form>
+        <a href="" class="LogInBtn">Log in</a>
+    </nav>
 
        <div class="RenderBody">
            @RenderBody()

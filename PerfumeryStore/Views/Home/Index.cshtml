@@ -1,1 +1,5 @@
-﻿
+﻿@model LendingViewModel
+
+
+@foreach (var product in Model.TopSales)
+    @await Html.PartialAsync("_Product", product)

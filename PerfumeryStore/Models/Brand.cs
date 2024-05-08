@@ -6,6 +6,7 @@
         public string Name { get; set; } = string.Empty;
         public string DisplayName {get;set; } = string.Empty;
         public string Discription {get;set; } = string.Empty;
+        public string Image { get;set; } = string.Empty;
 
         public Brand() 
         {

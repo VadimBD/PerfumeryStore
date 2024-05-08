@@ -1,7 +1,11 @@
 
 
+using PerfumeryStore.Models;
+using PerfumeryStore.Models.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<IProductRepository, FakeProductRepository>();
 builder.Services.AddMvc();
 
 var app = builder.Build();
