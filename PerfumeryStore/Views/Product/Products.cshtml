@@ -1,6 +1,15 @@
 ﻿@model ProductListViewModel
-Test
+
+@await Component.InvokeAsync("ProductFilter", new { selectedBrands = Model.BrandsId, selectedGender = Model.Gender, selectedProductTypes=Model.ProductTypes })
+
+<div>
+    <div class="ProductDisplaying">
+    @foreach (var product in Model.Products)
+        @await Html.PartialAsync("_Product", product)
+</div>
+
+
 <div page-model="@Model.PagingInfo" page-action="List"
-     page-classes-enable="true" page-class="btn" page-class-normal="btn-default" page-class-selected="btn-primary"
-     class="btn-group pull-right">
+     page-classes-enable="true" page-class="btn" page-class-normal="btn-default" page-class-selected="btn-primary">
+</div>
 </div>

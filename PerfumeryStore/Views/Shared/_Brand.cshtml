@@ -1,11 +1,10 @@
 ﻿@model Brand
 
-<div>
-    <a href="">
+<div class="ProductBox">
         <div>
             <img src="~/@Model.Image" />
-            <p>@Model.DisplayName</p>
+            <a asp-controller="Product" asp-action="BrandInfo" asp-route-id="@Model.Id">@Model.DisplayName</a>
         </div>
-    </a>
-    <a href="~/Product/Brands/@Model.Id">Brand Info</a>
+    <a asp-controller="Product" asp-action="List" asp-route-brand=@Model.Id>List of products</a>
+    <a asp-controller="Product" asp-action="BrandInfo" asp-route-id=@Model.Id>Brand Info</a>
 </div>

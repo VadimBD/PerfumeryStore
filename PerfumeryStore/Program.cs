@@ -6,9 +6,15 @@ using PerfumeryStore.Models.Interfaces;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<IProductRepository, FakeProductRepository>();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddScoped<Cart>(sp=>SessionCart.GetCart(sp));
+
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddSession();
 builder.Services.AddMvc();
 
 var app = builder.Build();
+app.UseSession();
 
 app.UseStaticFiles();
 if (app.Environment.IsDevelopment())

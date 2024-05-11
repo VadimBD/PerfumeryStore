@@ -13,26 +13,26 @@ namespace PerfumeryStore.Controllers
         public ProductController(IProductRepository productRepository)
         {
             _productRepository = productRepository;
-            pageSize = 2;
+            pageSize = 9;
         }
 
 
 
         [HttpGet]
-        public ViewResult List(string brands,string productTypes, Gender? gender,int page=1)
+        public ViewResult List(List<int> brand, List<ProductType> type, Gender? gender, int page = 1)
         {
-            var brandsList=!string.IsNullOrWhiteSpace(brands)? brands.Split(',').Cast<int>().ToList(): [];
-            var typeList=!string.IsNullOrWhiteSpace(productTypes)? productTypes.Split(",").Cast<ProductType>().ToList():[];
-            var productList = _productRepository.Products.Where(p => (typeList.Count < 1 || typeList.Contains(p.ProductType)) &&
-             (brandsList.Count < 1 || brandsList.Contains(p.Id)) &&
+            var productList = _productRepository.Products.Where(p => (type.Count < 1 || type.Contains(p.ProductType)) &&
+             (brand.Count < 1 || brand.Contains(p.Brand.Id)) &&
              (!gender.HasValue || p.Gender == gender.Value));
-            var productsVM = new ProductListViewModel(); 
-            productsVM.Products = productList.OrderBy(p=>p.Id).Skip((page-1)*pageSize).Take(pageSize);
-            productsVM.PagingInfo = new() { CurrentPage=page, ItemsPerPage=pageSize, TotalItems= productList.Count()};
-            productsVM.Gender = gender;
-            productsVM.BrandsId = brandsList;
-            productsVM.ProductTypes = typeList;
 
+            var productsVM = new ProductListViewModel()
+            {
+                Products = productList.OrderBy(p => p.Id).Skip((page - 1) * pageSize).Take(pageSize),
+                PagingInfo = new() { CurrentPage = page, ItemsPerPage = pageSize, TotalItems = productList.Count() },
+                Gender = gender,
+                BrandsId = brand,
+                ProductTypes = type
+            };
 
             return View("Products", productsVM);
         }
@@ -51,5 +51,12 @@ namespace PerfumeryStore.Controllers
             else
                 return View("Brands", _productRepository.Brands);
         }
+        [HttpGet]
+        public ViewResult BrandInfo(int id) 
+        {
+            var brand= _productRepository.Brands.FirstOrDefault(b => b.Id == id);
+            return View(brand);
+        }
+        
     }
 }

@@ -1,0 +1,48 @@
+﻿@model ProductFilterViewModel
+
+<form  asp-controller="Product" asp-action="List"  method="get">
+    <p>Brands</p>
+    @foreach(var item in Model.Brands)
+    {
+        <div>
+        <input id="@item.Id" name="brand" type="checkbox" value="@item.Id" onChange="this.form.submit()"
+               checked="@Model.SelectedBrands.Contains(item.Id)" />
+            <label for="@item.Id">@item.Name</label>
+        </div>
+
+    }
+
+    <p>Gender</p>
+    <div>
+        <div>
+            <input id="@Gender.Male" name="gender" type="radio" value="@Gender.Male" onChange="this.form.submit()"
+            @(Model.SelectedGender.HasValue && Model.SelectedGender.Value == Gender.Male ? "checked= \"checked\"" : string.Empty) />
+            <label for="@Gender.Male">@Gender.Male.ToString()</label>
+        </div>
+
+        <div>
+            <input id="@Gender.Female" name="gender" type="radio" value="@Gender.Female" onChange="this.form.submit()"
+            @(Model.SelectedGender.HasValue && Model.SelectedGender.Value == Gender.Female ? "checked= \"checked\"" : string.Empty) />
+            <label for="@Gender.Female">@Gender.Female.ToString()</label>
+        </div>
+        <div>
+            <input id="@Gender.Another" name="gender" type="radio" value="@Gender.Another" onChange="this.form.submit()"
+            @(Model.SelectedGender.HasValue && Model.SelectedGender.Value == Gender.Another? "checked= \"checked\"" : string.Empty) />
+            <label for="@Gender.Another">@Gender.Another.ToString()</label>
+        </div>
+        <div>
+            <input id="0" type="radio" name="gender" onChange="this.form.submit()" @(!Model.SelectedGender.HasValue ? "checked= \"checked\"" : string.Empty) />
+            <label>All</label>
+        </div>
+    </div> 
+
+
+
+    <p>Product Types </p>
+    @foreach (var item in Enum.GetValues<ProductType>())
+    {
+        <input id="@item" type="checkbox" name="type" onChange="this.form.submit()" value="@item" checked="@Model.SelectedProductTypes.Contains(item)" />
+        <label>@Enum.GetName(typeof(ProductType), item) </label>
+    }
+ 
+</form>

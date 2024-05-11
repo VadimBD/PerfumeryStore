@@ -18,13 +18,18 @@
     }
     public enum ProductType
     {
-
+        Parfum,
+        EauDeParfum,
+        EauDeToilette,
+        EauDeCologne,
+        Tester,
+        Вeodorant
     }
     public enum Gender
     {
-        Male,
-        Female,
-        Another
+        Male = 1,
+        Female = 2,
+        Another = 3
     }
   
     public class ProductСontainer
