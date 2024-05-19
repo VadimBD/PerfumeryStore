@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PerfumeryStore.Models;
 using PerfumeryStore.Models.Interfaces;
 using PerfumeryStore.Models.ViewModels;

@@ -15,13 +15,13 @@
             <input class=""  placeholder="Search"> 
             <a class="HeaderSearchBtn">Search</a>
         </form>
-        <a href="" class="LogInBtn">Log in</a>
+        <partial name="_LoginPartial" />
     </nav>
 
        <div class="RenderBody">
            @RenderBody()
        </div>
-
+    @RenderSection("Scripts",false)
    </body>
 
 </html>

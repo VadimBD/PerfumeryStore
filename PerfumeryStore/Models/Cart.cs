@@ -1,4 +1,6 @@
-﻿namespace PerfumeryStore.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace PerfumeryStore.Models
 {
     public class Cart
     {
@@ -28,7 +30,9 @@
     public class CartLine
     {
         public int CartLineId { get; set; }
+        [Required]
         public Product Product { get; set; }
+        [Required]
         public int Quantity { get; set; }
     }
 }
