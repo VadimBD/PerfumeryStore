@@ -20,3 +20,19 @@
     </span>
 
 </form>
+<form asp-action="AddReview" asp-controller="Product" method="post">
+    <div>
+        <input type="hidden" name="productId" value="@Model.Id" />
+        <label>Enter Review </label>
+        <input type="text" name="newReview" />
+        <button type="submit"> Add Review </button>
+    </div>
+
+</form>
+
+@foreach (var item in Model.Reviews.OrderBy(i=>i.IsertedDate))
+{
+   <div>
+       <span>@item.ReviewText</span>
+   </div>
+}

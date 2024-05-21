@@ -6,7 +6,7 @@ namespace PerfumeryStore.Models
     {
         public IEnumerable<Product> Products => 
             [
-            new Product(){ Id=1,Name="Product1",Price=123243,Brand= new(){Name="Perfumeri Brend1" , Id=1 },TopSales=true,Image="/images/TestPhoto.jpg"},
+            new Product(){ Id=1,Name="Product1",Price=123243,Brand= new(){Name="Perfumeri Brend1" , Id=1 },TopSales=true,Image="/images/TestPhoto.jpg",Reviews=[new() {Id=1,ReviewText="dsfsfssdssfsssfsf",IsertedDate=DateTime.Now.AddDays(-1)} ]},
             new Product(){ Id=2,Name="Product2",Price=123243,Brand= new(){Name="Perfumeri Brend2" ,Id=2},TopSales=true,Image="/images/TestPhoto.jpg"},
             new Product(){Id=3,Name="Product3",Price=(float)2325.767,Brand= new(){Name="Perfumeri Brend3" ,Id=3},TopSales=true,Image="/images/TestPhoto.jpg"},
             new Product(){Id=4,Name="Product4",Price=(float)2325.767,Brand= new(){Name="Perfumeri Brend3" ,Id=3},TopSales=true,Image="/images/TestPhoto.jpg"},
@@ -21,12 +21,12 @@ namespace PerfumeryStore.Models
 
         public Product DeleteProduct(Product product)
         {
-            throw new NotImplementedException();
+           return product;
         }
 
         public void SaveProduct(Product product)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

@@ -6,7 +6,7 @@
         public string Name { get; set; } = string.Empty;
         public float Price { get; set; }
         public string Description { get; set; } = string.Empty;
-        public Revie? Revie { get; set; }
+        public List<Review> Reviews { get; set; } = [];
         public string Article { get; set; } = string.Empty;
         public Brand? Brand { get; set; }
         public ProductСontainer? Container { get; set; }
