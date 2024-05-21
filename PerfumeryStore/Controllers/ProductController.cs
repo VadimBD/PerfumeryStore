@@ -62,16 +62,12 @@ namespace PerfumeryStore.Controllers
             return View(brand);
         }
         [Authorize]
-        public IActionResult AddReview(string newReview,int productId)
+        public IActionResult AddReview(string newReview, int productId)
         {
-            var review = new Review() { ReviewText = newReview, UserId=new Guid(_utils.GetCurrentUserId()) };
-            var product = _productRepository.Products.FirstOrDefault(p => p.Id == productId);
-            if (product != null)
-            {
-                product.Reviews.Add(review);
-                _productRepository.SaveProduct(product);
-            }
-            return RedirectToAction("ProductInfo", new {id=productId});
+            var review = new Review() { ReviewText = newReview, UserId = new Guid(_utils.GetCurrentUserId()) };
+            _productRepository.SaveReview(review, productId);
+
+            return RedirectToAction("ProductInfo", new { id = productId });
         }
     }
 }

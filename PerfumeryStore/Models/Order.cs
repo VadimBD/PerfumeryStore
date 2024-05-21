@@ -15,12 +15,13 @@ namespace PerfumeryStore.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int OrderNumber {get;set;}
         public Shipping Sheppment { get; set; } =new Shipping();
-        public IEnumerable<CartLine> Lines { get; set; } = [];
+        public List<CartLine> Lines { get; set; } = [];
         public float Total { get; set; }
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime? OrderDate { get; set; }
         public List<Paymant> Paymants {  get; set; }= [];
         public OrderStatus OrderStatus { get; set; } = OrderStatus.New;
+        
     }
 
     public enum OrderStatus

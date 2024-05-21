@@ -4,8 +4,7 @@
     {
         IEnumerable<Product> Products { get; }
         IEnumerable<Brand> Brands { get; }
-        void SaveProduct(Product product);
-        Product DeleteProduct(Product product);
-
+        
+       void SaveReview(Review review, int productId);
     }
 }

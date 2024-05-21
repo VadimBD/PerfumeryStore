@@ -30,7 +30,7 @@ namespace PerfumeryStore.Controllers
             { 
                 Order = new Order() {
                     Total = cart.ComputeTotalValue(),
-                    Lines = cart.Lines.ToArray(),
+                    Lines = cart.Lines.ToList(),
                 }
             };
            
@@ -46,7 +46,7 @@ namespace PerfumeryStore.Controllers
             }
 
             var order = orderVM.Order;
-            order.Lines = cart.Lines.ToArray();
+            order.Lines = cart.Lines.ToList();
             order.Total = cart.ComputeTotalValue();
 
             if (ModelState.IsValid)

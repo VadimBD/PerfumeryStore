@@ -8,15 +8,17 @@ using PerfumeryStore.Areas.Identity.Data;
 using PerfumeryStore.Infrastucture;
 
 var builder = WebApplication.CreateBuilder(args);
-var connectionString = builder.Configuration.GetConnectionString("AppIdentityDBContextConnection") ?? throw new InvalidOperationException("Connection string 'AppIdentityDBContextConnection' not found.");
+var connectionStringIdentity = builder.Configuration.GetConnectionString("AppIdentityDBContextConnection") ?? throw new InvalidOperationException("Connection string 'AppIdentityDBContextConnection' not found.");
+var connectionString=builder.Configuration.GetConnectionString("AppDBContextConnection") ?? throw new InvalidOperationException("Connection string 'AppDBContextConnection' not found.");
 
-builder.Services.AddDbContext<AppIdentityDBContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<AppIdentityDBContext>(options => options.UseSqlServer(connectionStringIdentity));
+builder.Services.AddDbContext<AppDBContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddDefaultIdentity<PerfumeryStoreUser>(options => options.SignIn.RequireConfirmedAccount = false).AddEntityFrameworkStores<AppIdentityDBContext>();
 builder.Services.AddControllersWithViews();
-builder.Services.AddSingleton<IProductRepository, FakeProductRepository>();
+builder.Services.AddTransient<IProductRepository, EFProductRepository>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped<Cart>(sp=>SessionCart.GetCart(sp));
-builder.Services.AddSingleton<IOrderRepository, FakeOrderRepository>();
+builder.Services.AddTransient<IOrderRepository, EFOrderRepository>();
 builder.Services.AddTransient<Utils>();
 
 builder.Services.AddHttpContextAccessor();
