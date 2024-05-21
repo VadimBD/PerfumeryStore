@@ -1,3 +1,39 @@
 ﻿@model OrderViewModel
 
 
+<div>
+    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+    <form asp-action="Checkout" method="post">
+        <div>
+            <label asp-for="Order.Sheppment.RecipientName">Recipient Name :</label>
+            <input type="text" asp-for="Order.Sheppment.RecipientName"/>
+            <span asp-validation-for="Order.Sheppment.RecipientName" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="Order.Sheppment.Type">Sheppment Type :</label>
+            <select asp-items="Model.ShippingTypeSLI" asp-for="Order.Sheppment.Type"></select>
+            <span asp-validation-for="Order.Sheppment.Type" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="Order.Sheppment.DeliveryPoint" >Delivery point :</label>
+            <input type="text" asp-for="Order.Sheppment.DeliveryPoint"/>
+            <span asp-validation-for="Order.Sheppment.DeliveryPoint" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="Order.Total">Total sum :</label>
+            <p type="text" asp-for="Order.Total" value="@Model.Order.Total">@Model.Order.Total</p>
+        </div>
+        <div>
+            @foreach(var item in Model.Order.Lines)
+            {
+                <div style="display:flex">
+                    <p>@item.Product.Name  </p>
+                    <p>@item.Product.Price </p>
+                    <p>@item.Quantity</p>
+                </div>
+            }
+        </div>
+         <button type="submit">Submit</button>
+    </form>
+
+</div>

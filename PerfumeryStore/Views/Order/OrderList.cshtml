@@ -1,0 +1,17 @@
+﻿@model List<Order>
+
+    <div>
+
+    @foreach(var  item in Model)
+    {
+        <div style="display:flex; flex-direction:column">
+
+            <h3>@item.OrderNumber</h3>
+            <p>@item.OrderDate</p>
+            <p>@item.OrderStatus</p>
+            <p>@item.Total</p>
+            <a asp-action="OrderDetails" asp-route-orderId="@item.Id">  Ditails </a>
+        </div>
+    }
+
+    </div>

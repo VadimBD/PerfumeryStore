@@ -5,6 +5,7 @@ using PerfumeryStore.Models;
 using PerfumeryStore.Models.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using PerfumeryStore.Areas.Identity.Data;
+using PerfumeryStore.Infrastucture;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("AppIdentityDBContextConnection") ?? throw new InvalidOperationException("Connection string 'AppIdentityDBContextConnection' not found.");
@@ -15,7 +16,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<IProductRepository, FakeProductRepository>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped<Cart>(sp=>SessionCart.GetCart(sp));
-builder.Services.AddScoped<IOrderRepository, FakeOrderRepository>();
+builder.Services.AddSingleton<IOrderRepository, FakeOrderRepository>();
+builder.Services.AddTransient<Utils>();
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSession();

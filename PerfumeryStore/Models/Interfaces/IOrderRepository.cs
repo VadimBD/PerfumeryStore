@@ -4,6 +4,5 @@
     {
         IEnumerable<Order> Orders { get; }
         void SaveOrder(Order order);
-        Order CreateNewOrder();
     }
 }

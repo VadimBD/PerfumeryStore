@@ -11,7 +11,7 @@ namespace PerfumeryStore.Models
         [Required]
         public string DeliveryPoint { get; set; } = string.Empty;
         [Required]
-        public ShippingType Type { get; set; }
+        public ShippingType Type { get; set; } = ShippingType.PickUp;
     }
     public enum ShippingType
     {

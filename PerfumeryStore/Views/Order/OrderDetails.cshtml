@@ -1,0 +1,17 @@
+﻿@model Order
+
+<div>
+    <h1>@Model.OrderNumber</h1>
+    <p>@Model.OrderDate</p>
+    <p>@Model.Total</p>
+    <h2>Products:</h2>
+    @foreach(var item in Model.Lines)
+    {
+
+        <div style="display:flex">
+            <p>@item.Product.Name  </p>
+            <p>@item.Product.Price </p>
+            <p>@item.Quantity</p>
+        </div>
+    }
+</div>

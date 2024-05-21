@@ -1,0 +1,10 @@
+﻿@model int
+<div>
+    <h1>Order successfully created. Your order number  is  @Model </h1>
+    <div style="display:flex">
+        <a asp-controller="Home" asp-action="Index">Home</a>
+
+        <a asp-action="OrderList">Orders</a>
+    </div>
+</div>
+
