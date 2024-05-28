@@ -12,8 +12,8 @@ using PerfumeryStore.Models;
 namespace PerfumeryStore.Migrations.AppDB
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20240521151050_Inserted and Order date default vlue")]
-    partial class InsertedandOrderdatedefaultvlue
+    [Migration("20240528162545_DateDefaultValue")]
+    partial class DateDefaultValue
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

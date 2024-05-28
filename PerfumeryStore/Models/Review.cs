@@ -12,6 +12,6 @@ namespace PerfumeryStore.Models
         [Required]
         public string ReviewText { get; set; } = string.Empty;
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public DateTime IsertedDate { get; set; }
+        public DateTime InsertedDate { get; set; }
     }
 }

@@ -1,16 +1,21 @@
 ﻿@model ProductFilterViewModel
 
-<form  asp-controller="Product" asp-action="List"  method="get">
-    <p>Brands</p>
-    @foreach(var item in Model.Brands)
-    {
-        <div>
-        <input id="@item.Id" name="brand" type="checkbox" value="@item.Id" onChange="this.form.submit()"
-               checked="@Model.SelectedBrands.Contains(item.Id)" />
-            <label for="@item.Id">@item.Name</label>
-        </div>
 
-    }
+<form  asp-controller="Product" asp-action="List"  method="get">
+    <div style=" display: flex; flex-direction: column;padding-left:7px">
+      
+    <p>Brands</p>
+        <div style=" height: 200px; overflow-y: auto;">
+            @foreach(var item in Model.Brands)
+            {
+                 <div>
+                    <input id="@item.Id" name="brand" type="checkbox" value="@item.Id" onChange="this.form.submit()"
+                    checked="@Model.SelectedBrands.Contains(item.Id)" />
+                    <label for="@item.Id">@item.Name</label>
+                </div>
+
+            }
+        </div>
 
     <p>Gender</p>
     <div>
@@ -41,8 +46,10 @@
     <p>Product Types </p>
     @foreach (var item in Enum.GetValues<ProductType>())
     {
+        <div style="display:flex">
         <input id="@item" type="checkbox" name="type" onChange="this.form.submit()" value="@item" checked="@Model.SelectedProductTypes.Contains(item)" />
         <label>@Enum.GetName(typeof(ProductType), item) </label>
+        </div>
     }
- 
+    </div>
 </form>

@@ -1,17 +1,18 @@
 ﻿@model List<Order>
 
-    <div>
+<div class="container">
+    <h1 class="Font">Orders:</h1>
 
     @foreach(var  item in Model)
     {
-        <div style="display:flex; flex-direction:column">
-
-            <h3>@item.OrderNumber</h3>
-            <p>@item.OrderDate</p>
-            <p>@item.OrderStatus</p>
-            <p>@item.Total</p>
-            <a asp-action="OrderDetails" asp-route-orderId="@item.Id">  Ditails </a>
+        <div class="row">
+            <div class="row OrderListItem Font">
+                <h3 class=" col-sm-1 Font ">@item.OrderNumber</h3>
+                <p class="col-sm-4 Font"> OrderDate: @item.OrderDate</p>
+                <p class="col-sm-3 Font"> OrderStatus:@item.OrderStatus</p>
+                <p class="col-sm-4  Font"> Total:@item.Total</p>
+        </div>
+            <a class=" Font" style="text-align:end" asp-action="OrderDetails" asp-route-orderId="@item.Id">  Ditails </a>
         </div>
     }
-
-    </div>
+</div>

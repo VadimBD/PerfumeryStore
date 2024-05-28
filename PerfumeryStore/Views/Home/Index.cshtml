@@ -1,5 +1,15 @@
 ﻿@model LendingViewModel
 
-
+<div style="display:flex; flex-direction:column; padding-left :15px">
+<h2>TopSales:</h2>
+<div style="display:flex">
+   
 @foreach (var product in Model.TopSales)
     @await Html.PartialAsync("_Product", product)
+</div>
+<h2>Noveltys:</h2>
+<div style="display:flex">
+@foreach (var product in Model.Noveltys)
+    @await Html.PartialAsync("_Product", product)
+</div>
+</div>

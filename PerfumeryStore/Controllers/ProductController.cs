@@ -16,7 +16,7 @@ namespace PerfumeryStore.Controllers
         public ProductController(IProductRepository productRepository,Utils utils)
         {
             _productRepository = productRepository;
-            pageSize = 9;
+            pageSize = 20;
             _utils = utils;
         }
 

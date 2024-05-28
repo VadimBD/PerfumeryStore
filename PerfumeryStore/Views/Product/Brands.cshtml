@@ -1,6 +1,10 @@
 ﻿@model IEnumerable<Brand>
 
+  
+<div style="display: grid; grid-template-columns: repeat(8, 1fr); gap: 10px;">
+
 @foreach (var brand in Model)
     @await Html.PartialAsync("_Brand", brand)
+  
 
-
+</div>

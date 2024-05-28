@@ -4,23 +4,9 @@ body {
     font-size:17px;
     margin: 0px 0px 0px 0px;
 }
-body .RenderBody{
-        display: flex;
-}
-.HeaderSearchBtn {
-    margin-left: 5px;
-    border: 1px solid black;
-    color: black;
-    border-radius: 5px;
-    padding: 2px 3px 2px 3px;
-    text-decoration: none;
-    background-color: rgba(123, 174, 205, 1);
-}
-    .HeaderSearchBtn:hover {
-        background-color: white;
-        box-shadow:rgba(0,0,0,0.3) 2px 2px;
-    }
-.LogInBtn {
+
+.RenderBody{
+    display:flex;
 }
 .ProductBox {
     display: flex;
@@ -36,7 +22,33 @@ body .RenderBody{
 
 }
 
-.ProductDisplaying{
-    display:flex;
-    flex-direction:row;
+.ProductDisplaying {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+}
+
+.header {
+    display: inline-flex;
+    width: 100%;
+    background-color: rgba(200, 152, 176, 1);
+    padding-top: 8px;
+}
+
+
+.login {
+ margin-right:5px;
+}
+.register {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.Font {
+    font-family: Snell Roundhand, cursive;
+}
+
+.OrderListItem {
+    border: 2px solid;
+    padding:2px 2px 2px 2px;
 }

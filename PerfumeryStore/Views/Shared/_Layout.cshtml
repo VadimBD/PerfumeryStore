@@ -6,19 +6,34 @@
    </head>
 
    <body>
-    <nav  style="background-color:rgba(200, 152, 176, 1); padding: 5px 5px 5px 5px;">
-        <a asp-controller="Home" asp-action="Index">Home</a>
-        <a asp-controller="Product" asp-action="Brands">Brands</a>
-        <a asp-controller="Product" asp-action="List">Catalog</a>
-        @await Component.InvokeAsync("CartSummary")
-        <form style="display:inline-flex" >
-            <input class=""  placeholder="Search"> 
-            <a class="HeaderSearchBtn">Search</a>
-        </form>
-        <partial name="_LoginPartial" />
-    </nav>
+       <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light  border-bottom box-shadow mb-3 header ">
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
 
-       <div class="RenderBody">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link active Font" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active Font" asp-controller="Product" asp-action="Brands">Brands</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active Font" asp-controller="Product" asp-action="List">Catalog</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active Font" asp-controller="Order" asp-action="OrderList">Order List</a>
+                </ul>
+                <a class="navbar-brand d-flex justify-content-center Font"  asp-controller="Home" asp-action="Index">Perfumery Store</a>
+                @await Component.InvokeAsync("CartSummary")
+                <partial name="_LoginPartial" />
+
+            </div>
+        </nav>
+
+    </header>
+
+    <div class="RenderBody">
            @RenderBody()
        </div>
     @RenderSection("Scripts",false)

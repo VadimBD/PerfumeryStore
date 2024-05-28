@@ -22,7 +22,7 @@ namespace PerfumeryStore.Models
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            builder.Entity<Review>().Property(r => r.IsertedDate).HasDefaultValueSql("GETDATE()");
+            builder.Entity<Review>().Property(r => r.InsertedDate).HasDefaultValueSql("GETDATE()");
             builder.Entity<Order>().Property(o => o.OrderDate).HasDefaultValueSql("GETDATE()");
         }
     }

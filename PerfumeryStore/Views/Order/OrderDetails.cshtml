@@ -1,17 +1,18 @@
 ﻿@model Order
 
-<div>
-    <h1>@Model.OrderNumber</h1>
-    <p>@Model.OrderDate</p>
-    <p>@Model.Total</p>
+<div style="padding-left:15px;">
+    <h1> Order Number : @Model.OrderNumber</h1>
+    <h2> Order Date : @Model.OrderDate</h2>
+    <h2> Total: @Model.Total $</h2>
     <h2>Products:</h2>
     @foreach(var item in Model.Lines)
     {
-
-        <div style="display:flex">
-            <p>@item.Product.Name  </p>
-            <p>@item.Product.Price </p>
-            <p>@item.Quantity</p>
+        <div style="display:flex ">
+            <div style="display:flex; flex-direction:column">
+            <img src="~/@item.Product.Image"/>
+            <p>@item.Product.Name : @item.Product.Price </p>
+            <p> Quantity : @item.Quantity</p>
+             </div>
         </div>
     }
 </div>

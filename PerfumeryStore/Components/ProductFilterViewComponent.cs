@@ -15,7 +15,7 @@ namespace PerfumeryStore.Components
         public IViewComponentResult Invoke(List<int> selectedBrands,Gender? selectedGender,List<ProductType> selectedProductTypes)
         {
             var vm = new ProductFilterViewModel() {
-                Brands = _repository.Brands.ToList(),
+                Brands = _repository.Brands.OrderBy(b=>b.DisplayName).ToList(),
                 SelectedBrands = selectedBrands,
                 SelectedGender = selectedGender,
                 SelectedProductTypes = selectedProductTypes,

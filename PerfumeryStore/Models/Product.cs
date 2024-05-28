@@ -18,12 +18,12 @@
     }
     public enum ProductType
     {
-        Parfum,
-        EauDeParfum,
-        EauDeToilette,
-        EauDeCologne,
-        Tester,
-        Вeodorant
+        Parfum=1,
+        EauDeParfum=2,
+        EauDeToilette=3,
+        EauDeCologne=4,
+        Tester=5,
+        Вeodorant=6
     }
     public enum Gender
     {

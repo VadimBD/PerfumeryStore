@@ -1,7 +1,7 @@
 ﻿@model CartIndexViewModel
-
-<h2>Your cart</h2>
-<table class="table table-bordered table-striped">
+<div class="container">
+<h2 >Your cart</h2>
+<table class="table table-bordered table-striped ">
     <thead>
         <tr>
             <th>Quantity</th>
@@ -11,13 +11,13 @@
         </tr>
     </thead>
 
-    <tbody>
+        <tbody >
         @foreach (var line in @Model.Cart.Lines)
         {
             <tr>
                 <td class="text-center">@line.Quantity</td>
                 <td class="text-left">@line.Product.Name</td>
-                <td class="text-right">@line.Product.Price.ToString("c")</td>
+                <td class="text-right">@line.Product.Price.ToString("C")</td>
                 <td class="text-right">
                     @((line.Quantity * line.Product.Price).ToString("c"))
                 </td>
@@ -44,7 +44,8 @@
     </tfoot>
 </table>
 
-<div class="text-center">
+    <div class="text-center ass=" row"">
     <a class="btn btn-primary" asp-action="List" asp-controller="Product">Continue Shopping</a>
     <a class="btn btn-primary" asp-action="Checkout" asp-controller="Order">Checkout</a>
+</div>
 </div>

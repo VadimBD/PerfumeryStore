@@ -1,10 +1,10 @@
 ﻿@model  Product
 
 <div class="ProductBox">
-    <img class="Image" src="@Model.Image" />
+    <img class="Image" src="~/@Model.Image" style="margin-top: 4px;
+    margin-left: 3px;" />
     <span>Perfume:</span>
     <a asp-controller="Product" asp-action="ProductInfo" asp-route-id="@Model.Id">@Model.Brand.Name @Model.Name</a>
     <p>Price: @Model.Price </p>
-    <span>@Model.Description</span>
-
+    <p> Container: @Model.Container.DisplayName</p>
 </div>

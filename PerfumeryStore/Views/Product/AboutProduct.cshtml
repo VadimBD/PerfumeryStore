@@ -1,15 +1,16 @@
 ﻿@model Product
+<div style="display:flex; flex-direction:column">
+<div >
 
-<div>
-    <img class="Image" src="@Model.Image" />
-    <h3>@Model.Name</h3>
-    <div>
-        <p>@Model.Price</p>
+        <div style="display:flex;flex-direction:row">
+    <img class="Image" src="~/@Model.Image" />
+            <div style="display:flex; flex-direction:column">
+                <h3>@Model.Name</h3>  
+                <p> Price: @Model.Price $ </p>
+            </div>
+
     </div>
-   
-    <span>@Model.Description</span>
-</div>
-
+        <span>@Model.Description</span>
 <form id=@Model.Id asp-action=AddToCart asp-controller="Cart" method="post">
     <input type="hidden" asp-for="Id" />
     <input type="hidden" name="returnUrl" value=@ViewContext.HttpContext.Request.PathAndQuery() />
@@ -20,8 +21,9 @@
     </span>
 
 </form>
-<form asp-action="AddReview" asp-controller="Product" method="post">
-    <div>
+    </div>
+<form  asp-action="AddReview" asp-controller="Product" method="post">
+    <div >
         <input type="hidden" name="productId" value="@Model.Id" />
         <label>Enter Review </label>
         <input type="text" name="newReview" />
@@ -30,9 +32,12 @@
 
 </form>
 
-@foreach (var item in Model.Reviews.OrderBy(i=>i.IsertedDate))
+
+@foreach (var item in Model.Reviews.OrderBy(i=>i.InsertedDate))
 {
    <div>
        <span>@item.ReviewText</span>
    </div>
 }
+</div>
+</div>
